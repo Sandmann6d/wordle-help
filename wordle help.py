@@ -15,14 +15,22 @@ with open('wordle words.txt', 'r') as www:
 potlst=[]
 potstr=''
 
+counter = 0
+
 for x in words:
     if all(z not in x for z in 'reoatdufyng') and all(z in x for z in 'li') and \
         x[0] != 'l' and x[1]!='l' and x[2]=='i' and x[3]!='i':
         print(x, end=', ')
-        potstr += x
+        counter += 1
+        y=''
+        for z in x:
+            if z not in y:
+                y += z
+        potstr += y
 
 a = Counter(potstr)
-print('\n', a)
+print()
+print(counter, 'words,', a)
 
 # triple=[]
 
