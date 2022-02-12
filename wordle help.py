@@ -5,6 +5,7 @@ Created on Fri Feb  4 13:25:31 2022
 @author: User
 """
 from collections import Counter
+import re
 
 words=[]
 
@@ -15,11 +16,27 @@ with open('wordle words.txt', 'r') as www:
 potlst=[]
 potstr=''
 
+# for x in words:
+#     if all(z in x for z in 'cgb'):
+#         print(x)
+
+# first=[]
+# for x in words:
+#     first.append(x[0])
+
+# b=Counter(first)
+# print(b)
+
+# for x in words:
+#     if x[0]=='z':
+#         print(x,end=', ')
+
 counter = 0
 
 for x in words:
-    if all(z not in x for z in 'reoatdufyng') and all(z in x for z in 'li') and \
-        x[0] != 'l' and x[1]!='l' and x[2]=='i' and x[3]!='i':
+    if all(z not in x for z in 'penismo') and all(z in x for z in 'lar') and \
+    re.match('[a-z][^u][t][^a][^r]', x):
+        #x[0] != 'r' and x[2]=='a' and x[4]=='e':# and x[4]!='l':
         print(x, end=', ')
         counter += 1
         y=''
@@ -31,6 +48,10 @@ for x in words:
 a = Counter(potstr)
 print()
 print(counter, 'words,', a)
+
+for x in words:
+    if all(z in x for z in 'cbt'):
+        print(x, end=', ')
 
 # triple=[]
 
